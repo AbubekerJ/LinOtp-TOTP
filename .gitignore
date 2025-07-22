@@ -1,0 +1,8 @@
+/node_modules
+.env
+/notes
+*.sql
+d.cnf
+ecosystem.config.cjs
+log/cybs.log
+.pm2*
