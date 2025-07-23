@@ -1,7 +1,12 @@
 
 
 const axios = require('axios');
+const { randomUUID } = require('crypto');
 const qs = require('querystring');
+require('dotenv').config();
+
+
+
 
 const LINOTP_SERVER = process.env.LINOTP_SERVER ;
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME ;
@@ -29,7 +34,7 @@ async function createLinOTPToken() {
         console.log('CSRF Token:', csrfToken);
 
         const tokenParams = {
-            serial: 'TOK' + Math.random().toString(36).substring(2, 10).toUpperCase(),
+            serial : 'TOK-' + Math.random().toString(36).substring(2, 10).toUpperCase(),
             genkey: 1, // Generate a key
             keysize: 20, // 20 bytes (160 bits)
             type: 'totp', // Token type (hmac, totp, etc.)
